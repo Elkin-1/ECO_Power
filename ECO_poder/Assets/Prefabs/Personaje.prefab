@@ -629,6 +629,11 @@ MonoBehaviour:
   tiempoRotacion: 0.1
   fuerzaSalto: 4
   gravedad: 9.81
+  vidas: 3
+  murio:
+    m_PersistentCalls:
+      m_Calls: []
+  listaCorazones: []
 --- !u!114 &2261226252752071725
 MonoBehaviour:
   m_ObjectHideFlags: 0

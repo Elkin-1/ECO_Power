@@ -7,20 +7,14 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
 public class Interacion : MonoBehaviour {
-    // aparte
 
-    // public string dato = "nada";
-
-    // original
     public string elemento;
 
     public UnityEvent entro;
     public UnityEvent salio;
 
     void OnTriggerEnter (Collider other)
-
     {
-        // dato=other.tag;
         if (other.tag == elemento)
         {
             entro.Invoke();
@@ -34,5 +28,4 @@ public class Interacion : MonoBehaviour {
             salio.Invoke();
         }
     }
-
 }

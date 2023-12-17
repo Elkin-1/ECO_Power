@@ -78,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contenedorElementos: {fileID: 0}
   cantidadElementos: 0
+  txtElementos: {fileID: 0}
   finalizoRecoleccion:
     m_PersistentCalls:
       m_Calls: []

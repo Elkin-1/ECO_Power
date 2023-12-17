@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MovimientoPersonaje : MonoBehaviour
 {
@@ -8,8 +9,12 @@ public class MovimientoPersonaje : MonoBehaviour
     public float velocidad = 6;
     public float tiempoRotacion = 0.1f;
  
-    public float fuerzaSalto = 2.0f;
+    public float fuerzaSalto = 1.0f;
     public float gravedad = 9.81f;
+
+    public int vidas = 3;
+    public UnityEvent murio;
+    public List<GameObject> listaCorazones = new List<GameObject>();
 
     private float velocidadGiro;
     private float fuerzaGravedad = 0;
@@ -75,10 +80,18 @@ public class MovimientoPersonaje : MonoBehaviour
     }
     public void Reiniciar()
     {
-        controladorCuerpo.Move(Vector3.zero);
-        controladorCuerpo.enabled = false;
-        transform.position = posicionIncial;
-        transform.rotation = rotacionIncial;
-        controladorCuerpo.enabled = true;
+        vidas--;
+        listaCorazones[vidas].SetActive(false);
+
+        if (vidas == 0)
+            murio.Invoke();
+        else
+        {
+            controladorCuerpo.Move(Vector3.zero);
+            controladorCuerpo.enabled = false;
+            transform.position = posicionIncial;
+            transform.rotation = rotacionIncial;
+            controladorCuerpo.enabled = true;
+        }
     }
 }
